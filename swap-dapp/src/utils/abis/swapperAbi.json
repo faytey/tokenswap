@@ -1,0 +1,98 @@
+[
+  {
+    "type": "impl",
+    "name": "ISwapImpl",
+    "interface_name": "swapper::swapper::ISwap"
+  },
+  {
+    "type": "interface",
+    "name": "swapper::swapper::ISwap",
+    "items": [
+      {
+        "type": "function",
+        "name": "swap_init_tokens_for_swapper_tokens",
+        "inputs": [
+          {
+            "name": "amount_of_init",
+            "type": "core::integer::u128"
+          }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
+      },
+      {
+        "type": "function",
+        "name": "swap_swapper_tokens_for_init_tokens",
+        "inputs": [
+          {
+            "name": "amount_of_swapper",
+            "type": "core::integer::u128"
+          }
+        ],
+        "outputs": [],
+        "state_mutability": "external"
+      },
+      {
+        "type": "function",
+        "name": "get_init_to_swapper_ratio",
+        "inputs": [],
+        "outputs": [
+          {
+            "type": "core::integer::u128"
+          }
+        ],
+        "state_mutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "get_swapper_to_init_ratio",
+        "inputs": [],
+        "outputs": [
+          {
+            "type": "core::integer::u128"
+          }
+        ],
+        "state_mutability": "view"
+      }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "swapper::swapper::Swapper::Swapped",
+    "kind": "struct",
+    "members": [
+      {
+        "name": "from",
+        "type": "core::starknet::contract_address::ContractAddress",
+        "kind": "key"
+      },
+      {
+        "name": "to",
+        "type": "core::starknet::contract_address::ContractAddress",
+        "kind": "data"
+      },
+      {
+        "name": "amount",
+        "type": "core::integer::u128",
+        "kind": "data"
+      },
+      {
+        "name": "swap",
+        "type": "core::integer::u128",
+        "kind": "data"
+      }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "swapper::swapper::Swapper::Event",
+    "kind": "enum",
+    "variants": [
+      {
+        "name": "Swapped",
+        "type": "swapper::swapper::Swapper::Swapped",
+        "kind": "nested"
+      }
+    ]
+  }
+]
