@@ -118,8 +118,9 @@ use starknet::{ContractAddress, get_caller_address, get_contract_address};
             self.allowance.read((from, to))
         }
         fn transfer_from(ref self: ContractState, from: ContractAddress, to: ContractAddress, amount: u128 ) {
-            assert(self.allowance.read((from, get_caller_address())) >= amount, 'Insufficient Allowance');
-            self.allowance.write((from, get_caller_address()), self.allowance.read((from, get_caller_address())) - amount);
+            let user: ContractAddress = get_contract_address();
+            assert(self.allowance.read((from, user)) >= amount, 'Insufficient Allowance');
+            self.allowance.write((from, user), self.allowance.read((from, user)) - amount);
             assert(self.balance_of.read(from) >= amount, 'Not Enough Tokens');
             self.balance_of.write(from, self.balance_of.read(from) - amount);
             self.balance_of.write(to, self.balance_of.read(to) + amount);

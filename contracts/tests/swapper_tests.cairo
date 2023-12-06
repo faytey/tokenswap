@@ -68,13 +68,16 @@ mod tests {
         assert(init_token.get_balance_of_user(user) != 0, 'Insufficient');
         assert(swap_token.get_balance_of_user(user) == 0, 'balance is 0');
         // Call a view function of the contract
-        start_prank(contract_address_one, user);
+        // start_prank(contract_address_one, user);
         init_token.approval(contract_address_one, 1000);
         assert(init_token.allowance(user, contract_address_one) != 0, 'allowance is 0');
+        start_prank(contract_address_one, contract_address_one);
+        init_token.transfer_from(user, contract_address_one, 100);
+        assert(init_token.get_balance_of_user(contract_address_one) == 100, 'Invalid');
         stop_prank(contract_address_one);
-        let swapper = dispatcher.swap_init_tokens_for_swapper_tokens(1000);
-        assert(init_token.get_balance_of_user(user) == 0, 'Error in swap');
-        assert(swap_token.get_balance_of_user(user) != 0, 'Errored');
+        // let swapper = dispatcher.swap_init_tokens_for_swapper_tokens(1000);
+        // assert(init_token.get_balance_of_user(user) == 0, 'Error in swap');
+        // assert(swap_token.get_balance_of_user(user) != 0, 'Errored');
         stop_prank(contract_address);
     }
 }

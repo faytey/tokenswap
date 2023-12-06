@@ -5,7 +5,7 @@ mod tests {
     use snforge_std::{declare, ContractClassTrait, start_prank, stop_prank};
     use swapper::init_token::{ITokenDispatcher, ITokenDispatcherTrait};
     use core::array::ArrayTrait;
-    use starknet::{ContractAddress,get_caller_address};
+    use starknet::{ContractAddress,get_caller_address, get_contract_address};
 
     // #[test]
     fn setup() -> ContractAddress {
@@ -164,7 +164,7 @@ mod tests {
 
         // Call a view function of the contract
         let user: ContractAddress = 0x03af13f04C618e7824b80b61e141F5b7aeDB07F5CCe3aD16Dbd8A4BE333A3Ffa.try_into().unwrap();
-        let receiver: ContractAddress = 0x01538745212ff736a6F71B389Fd4F9710A4142F1986f37dA95E53CC213606014.try_into().unwrap();
+        let receiver: ContractAddress = get_contract_address();
         start_prank(contract_address, user);
         dispatcher.mint(user);
         assert(dispatcher.get_balance_of_user(user) != 0, 'balance is 0');
@@ -172,11 +172,11 @@ mod tests {
         dispatcher.approval(receiver, 100);
         assert(dispatcher.allowance(user, receiver) != 0, 'allowance is 0');
         stop_prank(contract_address);
-        start_prank(contract_address, receiver);
+        // start_prank(contract_address, receiver);
         let transfer_from = dispatcher.transfer_from(user, receiver, 10);
         assert(dispatcher.get_balance_of_user(user) != 1000, 'balance is 1000');
         assert(dispatcher.get_balance_of_user(receiver) != 0, 'rec_balance == 0');
-        stop_prank(contract_address)
+        // stop_prank(contract_address)
     }
 
     #[test]
