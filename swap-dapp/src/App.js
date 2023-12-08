@@ -1,7 +1,13 @@
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import InitToken from "./components/InitToken/InitToken";
+import SwapTokens from "./components/SwapToken/SwapToken";
+import Swapper from "./components/Swapper/Swapper";
+import { PageLayout } from "./layout/PageLayout";
+import NavItems from "./components/NavItems/NavItems";
 import { connect, disconnect } from "@argent/get-starknet";
 import { useEffect, useState } from "react";
+import SwapToken from "./components/SwapToken/SwapToken";
 
 function App() {
   const [connection, setConnection] = useState("");
@@ -41,10 +47,20 @@ function App() {
     setAccount(undefined);
     setAddress("");
   };
+
+  const routes = (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<InitToken account={account} />} />
+        <Route path="swap" element={<SwapToken account={account} />} />
+        <Route path="swapper" element={<Swapper account={account} />} />
+      </Routes>
+    </BrowserRouter>
+  );
   return (
-    <main className="bg-gradient-to-br from-indigo-900 to-purple-400 h-screen flex flex-col items-center">
-      <div className=" text-yellow-50 flex flex-col md:flex-row gap-2 md:gap-4 items-center mt-4 px-[2em] justify-between w-full">
-        <p>SWAPPER</p>
+    <main className="bg-gradient-to-br from-indigo-900 to-purple-400">
+      <div className=" text-yellow-50 flex flex-col md:flex-row gap-2 md:gap-4 items-center pt-4 px-[2em] justify-between w-full">
+        <p className="font-bold text-2xl">SWAPPER</p>
         <p>{address}</p>
         {connection ? (
           <button
@@ -62,7 +78,10 @@ function App() {
           </button>
         )}
       </div>
-      <InitToken account={account} />
+      <div className="flex flex-col items-center justify-center">
+        {/* <PageLayout>{routes}</PageLayout> */}
+        {routes}
+      </div>
     </main>
   );
 }
