@@ -42,15 +42,27 @@ function App() {
     setAddress("");
   };
   return (
-    <main className="bg-purple-900 h-screen flex flex-col items-center">
-      <p className=" text-yellow-50">Token Swapper</p>
-      <InitToken />
-      {connection ? (
-        <button onClick={disconnectWallet}>Disconnect</button>
-      ) : (
-        <button onClick={connectWallet}>Connect Wallet</button>
-      )}
-      <p>{address}</p>
+    <main className="bg-gradient-to-br from-indigo-900 to-purple-400 h-screen flex flex-col items-center">
+      <div className=" text-yellow-50 flex flex-col md:flex-row gap-2 md:gap-4 items-center mt-4 px-[2em] justify-between w-full">
+        <p>SWAPPER</p>
+        <p>{address}</p>
+        {connection ? (
+          <button
+            className="border rounded-lg shadow-md border-black bg-white text-purple-950 py-2 px-4 mb-2"
+            onClick={disconnectWallet}
+          >
+            Disconnect
+          </button>
+        ) : (
+          <button
+            className="border rounded-lg shadow-md border-black bg-white text-purple-950 py-2 px-4 mb-2"
+            onClick={connectWallet}
+          >
+            Connect Wallet
+          </button>
+        )}
+      </div>
+      <InitToken account={account} />
     </main>
   );
 }

@@ -1,11 +1,11 @@
-.App {
+/* .App {
   text-align: center;
   background: linear-gradient(-45deg, #2a0902, #1d0a05, #f4775b, #270c06);
   animation: gradientBG 15s ease infinite;
   background-size: 400% 400%;
 }
 
-/* keyframes for changing the body background color */
+keyframes for changing the body background color 
 @keyframes gradientBG {
   0% {
       background-position: 0% 50%;
@@ -145,4 +145,4 @@
   border-radius: 7px;
   color: white;
   cursor: pointer;
-}
+} */
