@@ -15,3 +15,8 @@ The swap token to be exchanged with init tokens can be interacted with here http
 # 3. Swapper Contract - 
 The main dex contract that handles the logic of the simple and minimal decentralied exchange, to swap approval needs to be granted to the init or swap token contracts and users need to have minted into their wallets the tokens to be swapped, this swapper contract can be interacted with here https://goerli.voyager.online/contract/0x03bc0ba6254229e63fd9bdaaf82c4e2ab0640a8ea5265804d5250d095541943e
  
+To Interact with the dapp as the build is still served locally, kindly do the following
+`git clone https://github.com/faytey/tokenswap.git`
+then `cd tokenswap && cd swap-dapp`
+`npm install`
+`npm run start`
