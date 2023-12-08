@@ -61,7 +61,9 @@ function App() {
     <main className="bg-gradient-to-br from-indigo-900 to-purple-400">
       <div className=" text-yellow-50 flex flex-col md:flex-row gap-2 md:gap-4 items-center pt-4 px-[2em] justify-between w-full">
         <p className="font-bold text-2xl">SWAPPER</p>
-        <p>{address}</p>
+        <p className="text-xl font-semibold font-mono shadow-md p-2 m-2">
+          {address}
+        </p>
         {connection ? (
           <button
             className="border rounded-lg shadow-md border-black bg-white text-purple-950 py-2 px-4 mb-2"

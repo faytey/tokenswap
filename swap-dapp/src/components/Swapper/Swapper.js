@@ -66,11 +66,11 @@ function Swapper({ account }) {
       <header>
         <NavItems />
       </header>
-      <main className="bg-gradient-to-tr from-purple-400 to-indigo-900 px-8 py-2 md:py-8 flex flex-col items-center justify-center rounded-3xl shadow-2xl gap-8 w-[70%] h-[70%] md:h-[50%] mb-6 mt-[4em]">
+      <main className="bg-gradient-to-tr from-purple-400 to-indigo-900 px-8 py-2 md:py-8 flex flex-col items-center justify-center rounded-3xl shadow-2xl gap-8 w-[90%] md:h-[50%] mb-6 mt-[4em]">
         <p className="text-yellow-200 font-bold text-2xl">
           Interact with Swapper
         </p>
-        <div className="flex justify-evenly gap-8 w-full">
+        <div className="flex flex-col md:flex-row items-center md:justify-evenly gap-8 w-full">
           <div className="bg-purple-200 flex flex-col gap-4 justify-center items-center py-4 px-8 rounded-md shadow-xl w-[80%]">
             <button
               className="text-xl text-center font-bold shadow-indigo- border-2 py-3 px-8 rounded-lg border-purple-950"
@@ -92,7 +92,7 @@ function Swapper({ account }) {
           </div>
         </div>
 
-        <div className="flex justify-evenly gap-8 w-full">
+        <div className="flex flex-col md:flex-row items-center md:justify-evenly gap-8 w-full">
           <div className="bg-purple-200 flex flex-col gap-4 justify-center items-center py-4 px-8 rounded-md shadow-xl w-[80%]">
             <div className="flex flex-col gap-4 items-center">
               <label

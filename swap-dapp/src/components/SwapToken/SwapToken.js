@@ -56,7 +56,7 @@ function SwapToken({ account }) {
       <header>
         <NavItems />
       </header>
-      <main className="bg-purple-200 px-8 py-2 md:py-8 flex flex-col items-center justify-center rounded-3xl shadow-2xl gap-8 w-[70%] h-[70%] md:h-[50%] mb-6 mt-[4em]">
+      <main className="bg-purple-200 px-8 py-2 md:py-8 flex flex-col items-center justify-center rounded-3xl shadow-2xl gap-8 w-[90%] md:h-[50%] mb-6 mt-[4em]">
         <p
           className="text-xl text-center font-bold shadow-indigo-800"
           onLoad={getName()}
