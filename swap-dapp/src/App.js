@@ -1,10 +1,10 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import InitToken from "./components/InitToken/InitToken";
-import SwapTokens from "./components/SwapToken/SwapToken";
+// import SwapTokens from "./components/SwapToken/SwapToken";
 import Swapper from "./components/Swapper/Swapper";
-import { PageLayout } from "./layout/PageLayout";
-import NavItems from "./components/NavItems/NavItems";
+// import { PageLayout } from "./layout/PageLayout";
+// import NavItems from "./components/NavItems/NavItems";
 import { connect, disconnect } from "@argent/get-starknet";
 import { useEffect, useState } from "react";
 import SwapToken from "./components/SwapToken/SwapToken";
@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     const starknetConnect = async () => {
-      const connected = await connect({
+      const connection = await connect({
         modalMode: "neverAsk",
         webWalletUrl: "https://web.argent.xyz",
       });
